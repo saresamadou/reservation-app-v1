@@ -1,5 +1,6 @@
 package aboudou.samadou.entities;
 
+import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -13,11 +14,12 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 
+
 @Entity
 @Table(name="reservations")
-public class Reservation
+public class Reservation implements Serializable
 {
-	private static final Long serialVersionUID = 1L;
+	private static final long serialVersionUID=1L;
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
