@@ -13,6 +13,7 @@ import aboudou.samadou.metier.Metier;
 import aboudou.samadou.repositories.CarRepository;
 
 @RestController
+@RequestMapping("/cars")
 public class CarService {
 
 	@Autowired
@@ -24,7 +25,7 @@ public class CarService {
 		return metier.getAllCars();
 	}
 	
-	@RequestMapping(value = "/addCar", method = RequestMethod.PUT, consumes = "application/json; charset=UTF-8")
+	@RequestMapping(value = "/addCar", method = RequestMethod.POST)
 	private String addNewCar(@RequestBody Car newCar)
 	{
 		if(newCar.equals(null))

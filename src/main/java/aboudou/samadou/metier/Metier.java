@@ -46,7 +46,7 @@ public class Metier implements IMetier
 	@Override
 	public void addCar(Car car) {
 		// TODO Auto-generated method stub
-		
+		carRepository.saveAndFlush(car);
 	}
 
 }
