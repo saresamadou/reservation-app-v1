@@ -9,48 +9,50 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="cars")
-public class Car implements Serializable
-{
-	private static final long serialVersionUID=1L;
-	
+@Table(name = "cars")
+public class Car implements Serializable {
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String matricule;
 	private String marque;
-	
-	public Car()
-	{
-		
+	private int place;
+
+	public Car() {
+
 	}
 
-	public Car(String matricule, String marque)
-	{
+	public Car(String matricule, String marque, int place) {
 		super();
 		this.matricule = matricule;
 		this.marque = marque;
+		this.place = place;
 	}
 
-	public String getMatricule()
-	{
+	public String getMatricule() {
 		return matricule;
 	}
 
-	public void setMatricule(String matricule)
-	{
+	public void setMatricule(String matricule) {
 		this.matricule = matricule;
 	}
 
-	public String getMarque()
-	{
+	public String getMarque() {
 		return marque;
 	}
 
-	public void setMarque(String marque)
-	{
+	public void setMarque(String marque) {
 		this.marque = marque;
 	}
-	
-	
+
+	public int getPlace() {
+		return place;
+	}
+
+	public void setPlace(int place) {
+		this.place = place;
+	}
+
 }

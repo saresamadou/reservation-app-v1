@@ -13,4 +13,6 @@ public interface IMetier
 	public List<Car> getAllCars();
 	
 	public List<Reservation> getAllReservations();
+	
+	public void addCar(Car car);
 }

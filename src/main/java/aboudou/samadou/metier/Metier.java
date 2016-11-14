@@ -43,4 +43,10 @@ public class Metier implements IMetier
 		return Lists.newArrayList(reservationRepository.findAll());
 	}
 
+	@Override
+	public void addCar(Car car) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
