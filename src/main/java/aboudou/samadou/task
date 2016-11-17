@@ -1,0 +1,22 @@
+TODO
+Bussiness:
+
+service to add new car
+service to update a car
+service to delete a car
+
+service to add new client
+service to update a client
+service to delete a client
+
+service to create a new reservation
+service to update a reservation
+servie to get all reservation
+
+
+Cross-cutting :
+Aop for logging event
+Aop and spring security
+
+Implement Spring Webflow for car reservation
+Manage transation
