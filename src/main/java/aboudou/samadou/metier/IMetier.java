@@ -15,4 +15,10 @@ public interface IMetier
 	public List<Reservation> getAllReservations();
 	
 	public void addCar(Car car);
+	
+	public void addClient(Client client);
+	
+	Client findClientByEmail(String email);
+	
+	void changeCarDisponibility(Car car);
 }

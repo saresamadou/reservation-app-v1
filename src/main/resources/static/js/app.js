@@ -10,13 +10,29 @@ app.config(['$routeProvider', function($routeProvider) {
 			templateUrl: 'views/register.html',
 			controller: 'RegistrationController'
 		}).
-		when('/success', {
+		when('/home', {
 			templateUrl: 'views/home.html',
 			controller: 'homeController'
 		}).
 		when('/car', {
 			templateUrl: 'views/car.html',
 			controller: 'carController'
+		}).
+		when('/addcar', {
+			templateUrl: 'views/addcar.html',
+			controller: 'carController'
+		}).
+		when('/addclient', {
+			templateUrl: 'views/addclient.html',
+			controller: 'clientController'
+		}).
+		when('/reservations', {
+			templateUrl: 'views/reservations.html',
+			controller: 'reservationsController'
+		}).
+		when('/contact', {
+			templateUrl: 'views/contact.html',
+			controller: 'contactController'
 		}).
 		otherwise( {
 			redirectTo: '/login'

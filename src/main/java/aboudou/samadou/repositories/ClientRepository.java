@@ -6,5 +6,5 @@ import aboudou.samadou.entities.Client;
 
 public interface ClientRepository extends JpaRepository<Client, Long>
 {
-
+	Client findByEmail(String email);
 }

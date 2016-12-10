@@ -1,0 +1,12 @@
+<section class="container">
+	<!-- NAVIGATION header -->
+	<div ng-include="'views/nav.html'"></div>
+	<br /> <br /> <br /> <br /> <br /> <br />
+	
+	<h3>To contact us</h3>
+	<ul ng-repeat="info in contactInfos">
+		<li>Phone number : {{ info.Phone }}</li>
+		<li>Email : {{ info.Email }}</li>
+		<li>Fax : {{ info.Fax }}</li>
+	</ul>
+</section>

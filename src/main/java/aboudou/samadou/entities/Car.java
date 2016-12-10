@@ -19,16 +19,27 @@ public class Car implements Serializable {
 	private String matricule;
 	private String marque;
 	private int place;
+	private boolean disponibilite;
 
 	public Car() {
 
 	}
 
-	public Car(String matricule, String marque, int place) {
+	public Car(String matricule, String marque, int place, boolean disponibilite) {
 		super();
 		this.matricule = matricule;
 		this.marque = marque;
 		this.place = place;
+		this.disponibilite = disponibilite;
+	}
+
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getMatricule() {
@@ -55,4 +66,19 @@ public class Car implements Serializable {
 		this.place = place;
 	}
 
+	public boolean isdisponibilite() {
+		return disponibilite;
+	}
+
+	public void setdisponibilite(boolean disponibilite) {
+		this.disponibilite = disponibilite;
+	}
+
+	@Override
+	public String toString() {
+		return "Car [id=" + id + ", matricule=" + matricule + ", marque=" + marque + ", place=" + place
+				+ ", disponibilite=" + disponibilite + "]";
+	}
+
+	
 }

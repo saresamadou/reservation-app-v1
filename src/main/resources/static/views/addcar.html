@@ -1,0 +1,42 @@
+<section class="container">
+	<!-- NAVIGATION header -->
+	<div ng-include="'views/nav.html'"></div>
+	<br /> <br /> <br /> <br /> <br /> <br />
+
+	<div>
+		<h2>Add a new car</h2>
+	</div>
+	
+	<form name="addCarForm" ng-submit="addcar()" novalidate>
+		
+		Matricule : <br/>
+		<input type="text" name="matricule" placeholder="Matricule"
+		 ng-model="car.matricule" ng-required="true" 
+		/>
+		
+		<br/>
+		Marque : <br/>
+		<select name="marque" ng-model="car.marque" ng-required="true">
+			<option value="peugot">PEUGOT</option>
+			<option value="renault">RENAULT</option>
+			<option value="toyota">TOYOTA</option>
+			<option value="audi">AUDI</option>
+			<option value="volswagen">VOLSWAGEN</option>
+			<option value="ford">FORD</option>
+		</select>
+		<br/>
+		Place : <br/>
+		<select name="place" ng-model="car.place" ng-required="true">
+			<option value="1">1</option>
+			<option value="2">2</option>
+			<option value="4">4</option>
+		</select>
+		<br/>
+		Disponibilte : <br/>
+		<input type="radio" name="disponibilite" ng-model="car.disponibilite"  value="true" >Disponible</input>
+		<input type="radio" name="disponibilite" ng-model="car.disponibilite"  value="false" >Non disponible</input>
+		<br/>
+		<button type="submit" class="btn btn-primary" ng-disabled="addCarForm.$invalid">Add</button>
+		<a  href="#/home" class="btn btn-primary">Cancel</a>
+	</form>
+</section>

@@ -1,0 +1,34 @@
+<section class="container">
+<!-- NAVIGATION header -->
+	<div ng-include="'views/nav.html'"></div>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	<br/>
+	
+	<form name="addClientForm" ng-submit="addclient()" novalidate>
+		<div>
+		<h2>Add a new client</h2>
+	</div>
+		Nom : <br/>
+		<input type="text" name="name" placeholder="name" 
+		ng-model="client.name" ng-required="true"/>
+		<br/>
+		Email : <br/>
+		<input type="email" name="email" placeholder="email"
+		ng-model="client.email" ng-required="true"/>
+		<br/>
+		Adresse : <br/>
+		<input type="text" name="adresse" placeholder="adresse"
+		ng-model="client.addresse" ng-required="true"/>
+		<br/>
+		Phone : <br/>
+		<input type="number" name="phone" placeholder="phone number"
+		ng-model="client.phone" ng-required="true"/>
+		<br/>
+		<button type="submit" class="btn btn-primary" ng-disabled="addClientForm.$invalid">Add</button>
+		<a  href="#/home" class="btn btn-primary">Cancel</a>
+	</form>
+</section>

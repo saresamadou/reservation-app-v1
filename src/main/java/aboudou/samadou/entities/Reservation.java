@@ -25,16 +25,18 @@ public class Reservation implements Serializable
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Long id;
 	
+	@Column(name="date")
 	@Temporal(javax.persistence.TemporalType.DATE)
-	private Date date;
+	private Date date = new java.sql.Date(new java.util.Date().getTime());
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	//fetch=FetchType.LAZY
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_car")
 	private Car car;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	@JoinColumn(name="id_client")
-	private Client client;
+	public Client client;
 	
 	@Column(name = "id_client", insertable = false, updatable = false)
 	private Long idClient;
@@ -45,6 +47,57 @@ public class Reservation implements Serializable
 	public Reservation()
 	{
 		
+	}
+
+
+	public Reservation(Long id, Date date, Car car, Client client, Long idClient, Long idCar) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.car = car;
+		this.client = client;
+		this.idClient = idClient;
+		this.idCar = idCar;
+	}
+
+
+	public Date getDate() {
+		return date;
+	}
+
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
+
+
+	public Long getIdClient() {
+		return idClient;
+	}
+
+
+	public void setIdClient(Long idClient) {
+		this.idClient = idClient;
+	}
+
+
+	public Long getIdCar() {
+		return idCar;
+	}
+
+
+	public void setIdCar(Long idCar) {
+		this.idCar = idCar;
+	}
+
+
+	public Long getId() {
+		return id;
+	}
+
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
@@ -77,6 +130,14 @@ public class Reservation implements Serializable
 	{
 		this.client = client;
 	}
+
+
+	@Override
+	public String toString() {
+		return "Reservation [id=" + id + ", date=" + date + ", car=" + car + ", client=" + client + ", idClient="
+				+ idClient + ", idCar=" + idCar + "]";
+	}
+	
 	
 	
 }
