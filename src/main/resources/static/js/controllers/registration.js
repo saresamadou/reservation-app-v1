@@ -1,4 +1,5 @@
-app.controller('RegistrationController', ['$scope','$location','$http', function($scope, $location, $http ) {
+app.controller('RegistrationController', ['$scope','$location','$http','$rootScope', 
+	function($scope, $location, $http, $rootScope ) {
 	
 	
 	
@@ -6,10 +7,10 @@ app.controller('RegistrationController', ['$scope','$location','$http', function
 		
 		var email = $scope.user.email;
 		
-		$http.post("http://127.0.0.1:8080/clients/login", email).
+		$http.post("/clients/login", email).
         success(function(data) {
         	console.log("OK");
-        	console.log(data);
+        	$rootScope.connectedUser = data;
         	$location.path('/home');
         })
         .error(function() 

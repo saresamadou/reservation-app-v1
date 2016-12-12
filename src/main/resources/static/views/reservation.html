@@ -1,0 +1,40 @@
+<section class="container">
+	<!-- NAVIGATION header -->
+	<div ng-include="'views/nav.html'"></div>
+	<br /> <br /> <br /> <br /> <br /> <br />
+	<div ng-show="car" class="pane">
+		<h3>Car you want to reserve</h3>
+
+		<p>ID : {{ car.id }}</p>
+		<p>Marque: {{ car.marque | uppercase}}</p>
+		<p>Matricule : {{ car.matricule | uppercase }}</p>
+		<p>Place : {{car.place}}</p>
+	</div>
+
+	<div class="pane">
+		<h3 ng-show="client">Client information</h3>
+		<p ng-show="message" class="error">{{ message }}</p>
+		<form name="searchForm" ng-submit="searchUser()" novalidate>
+			<input type="text" placeholder="Search user by email"
+				ng-model="user.email" ng-required="true" />
+			<button class="btn btn-primary" type="submit"
+				ng-disabled="searchForm.$invalid">Search</button>
+		</form>
+
+		<div ng-show="client">
+			<p>ID : {{ client.id }}</p>
+			<p>Name : {{ client.name | uppercase}}</p>
+			<p>Email : {{ client.email | uppercase }}</p>
+			<p>Adresse : {{client.adresse}}</p>
+			<p>Phone : {{client.phone}}</p>
+			<form name="reserveForm" ng-submit="reserve()">
+				<button class="btn btn-primary" type="submit"
+					>Reserve</button>
+			</form>
+		</div>
+
+
+
+	</div>
+
+</section>

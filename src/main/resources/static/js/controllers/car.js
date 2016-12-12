@@ -24,11 +24,15 @@ app.controller("carController", [
 
 				// Send POST request to add a new car
 				$http.post("http://127.0.0.1:8080/cars/addCar", car).success(
-						function() {
-							console.log("OK");
-							$location.path('/home');
-						}).error(function() {
-					console.log("KO");
+						function(data) {
+							if(data==300){
+								$scope.error_message="The car with matricule " + car.matricule +" you're adding already exists!";
+							} else if(data==200){
+								$location.path('/home');
+							}
+							
+						}).error(function(data) {
+							console.log(data);
 				});
 
 			};

@@ -8,7 +8,7 @@ app.config(['$routeProvider', function($routeProvider) {
 		}).
 		when('/register', {
 			templateUrl: 'views/register.html',
-			controller: 'RegistrationController'
+			controller: 'clientController'
 		}).
 		when('/home', {
 			templateUrl: 'views/home.html',
@@ -33,6 +33,10 @@ app.config(['$routeProvider', function($routeProvider) {
 		when('/contact', {
 			templateUrl: 'views/contact.html',
 			controller: 'contactController'
+		}).
+		when('/reservation', {
+			templateUrl: 'views/reservation.html',
+			controller: 'reservationController'
 		}).
 		otherwise( {
 			redirectTo: '/login'

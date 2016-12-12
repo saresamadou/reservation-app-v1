@@ -2,6 +2,8 @@ package aboudou.samadou.metier;
 
 import java.util.List;
 
+
+
 import aboudou.samadou.entities.Car;
 import aboudou.samadou.entities.Client;
 import aboudou.samadou.entities.Reservation;
@@ -14,7 +16,7 @@ public interface IMetier
 	
 	public List<Reservation> getAllReservations();
 	
-	public void addCar(Car car);
+	public void addCar(Car car) throws Exception;
 	
 	public void addClient(Client client);
 	

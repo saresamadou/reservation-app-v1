@@ -1,39 +1,25 @@
 <section class="container">
-	 <form name="myform" 
-	 ng-submit="register()"
-	 novalidate>
-	 	<div class="textintro">
-	 		<h1>Register</h1>
+<form name="addClientForm" ng-submit="addclient()" novalidate>
+		<div>
+		<h1>Register</h1>
 	 		<p> To access our car reservation features</p>
-	 		<p ng-show="message">{{ message }}</p>
-	 	</div>
-	 	<fieldset>
-	 		<!-- Firstname -->
-	 		<input type="text" name="firstname" placeholder="First Name"
-	 		ng-model="user.firstname" ng-required="true"/>
-	 		<p class="error validationerror" ng-show="myform.firstname.$invalid && 
-	 		myform.firstname.$touched">Fistname is required</p>
-	 		
-	 		<!-- Lastname -->
-	 		<input type="text" name="lastname" placeholder="Last Name" 
-	 		ng-model="user.lastname" ng-required="true"/>
-	 		<p class="error validationerror" ng-show="myform.lastname.$invalid && 
-	 		myform.lastname.$touched">Lastname is required</p>
-	 		
-	 		<!-- Email -->
-	 		<input type="email" name="email" placeholder="Email"
-	 		ng-model="user.email"  ng-required="true"/>
-	 		<p class="error validationerror" ng-show="myform.email.$invalid && 
-	 		myform.email.$touched">Must be a valid email</p>
-	 		
-	 		<!-- Password -->
-	 		<input type="password" name="password" placeholder="Password"
-	 		ng-model="user.password" ng-required="true"/>
-	 		<p class="error validationerror" ng-show="myform.password.$invalid && 
-	 		myform.password.$touched">Password is required</p>
-	 	</fieldset>
-	 	
-	 	<button type="submit" class="btn" ng-disbaled="myform.$invalid">Register</button>
-	 	<p> or <a href="#/login">Login</a>
-	 </form>
+	</div>
+		Nom : <br/>
+		<input type="text" name="name" placeholder="name" 
+		ng-model="client.name" ng-required="true"/>
+		<br/>
+		Email : <br/>
+		<input type="email" name="email" placeholder="email"
+		ng-model="client.email" ng-required="true"/>
+		<br/>
+		Adresse : <br/>
+		<input type="text" name="adresse" placeholder="adresse"
+		ng-model="client.addresse" ng-required="true"/>
+		<br/>
+		Phone : <br/>
+		<input type="number" name="phone" placeholder="phone number"
+		ng-model="client.phone" ng-required="true"/>
+		<br/>
+		<button type="submit" class="btn btn-primary" ng-disabled="addClientForm.$invalid">Register</button>
+	</form>	 
 </section>

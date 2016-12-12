@@ -5,3 +5,11 @@
 .dispo_true {
 	color: green;
 }
+.error {
+	color:red;
+	
+}
+.pane {
+	border: 2px solid green;
+	margin-bottom: 5px;
+}

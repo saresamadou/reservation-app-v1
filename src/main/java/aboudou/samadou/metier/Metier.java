@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import aboudou.samadou.entities.Car;
 import aboudou.samadou.entities.Client;
@@ -40,7 +41,7 @@ public class Metier implements IMetier {
 	}
 
 	@Override
-	public void addCar(Car car) {
+	public void addCar(Car car) throws Exception{
 		carRepository.saveAndFlush(car);
 	}
 

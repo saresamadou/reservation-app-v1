@@ -5,6 +5,7 @@
 
 	<div>
 		<h2>Add a new car</h2>
+		<p class="error" ng-show="error_message"> {{error_message}}</p>
 	</div>
 	
 	<form name="addCarForm" ng-submit="addcar()" novalidate>

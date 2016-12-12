@@ -16,7 +16,7 @@ app.controller("clientController", [
 				client.phone = $scope.client.phone;
 
 				// Send POST request to add a new client
-				$http.post("http://127.0.0.1:8080/clients/addClient", client)
+				$http.post("/clients/addClient", client)
 						.success(function() {
 							console.log("OK");
 							$location.path('/home');
