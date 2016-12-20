@@ -1,11 +1,18 @@
 TODO
 
-LOGGING AOP
-SECURITY
+BATCH FOR ADD A DATA IN THE DATABASE
+
+TESTING 
+Unit testing 
+
+LOGGING AOP  => OK
+
+SECURITY 
+
+JENKINS
 
 
-
-
+CORE
 Bussiness:
 
 service to add new car
@@ -27,3 +34,4 @@ Aop and spring security
 
 Implement Spring Webflow for car reservation
 Manage transation
+

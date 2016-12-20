@@ -12,18 +12,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
-
 import aboudou.samadou.entities.Car;
+import aboudou.samadou.exceptions.CarAlreadyExistsException;
 import aboudou.samadou.metier.Metier;
-import aboudou.samadou.repositories.CarRepository;
 
 @RestController
 @RequestMapping("/cars")
 @CrossOrigin
 public class CarService {
 
-	final static Logger logger = LoggerFactory.getLogger(CarService.class);
+	static final  Logger logger = LoggerFactory.getLogger(CarService.class);
 
 	private static final Integer CAR_ALREADY_EXIST = 300;
 
@@ -38,7 +36,8 @@ public class CarService {
 	}
 
 	@RequestMapping(value = "/addCar", method = RequestMethod.POST)
-	public @ResponseBody Integer addNewCar(@RequestBody Car newCar) {
+	@ResponseBody
+	public Integer addNewCar(@RequestBody Car newCar) {
 		logger.info(newCar.toString());
 
 		if (newCar.equals(null)) {
@@ -49,12 +48,12 @@ public class CarService {
 				metier.addCar(newCar);
 				logger.info("New car successfuly added !");
 				return CAR_SUCCESSFULLY_ADDED;
-			} catch (Exception e) {
-				logger.error("An exception occurs " + e.getMessage());
+			} catch (CarAlreadyExistsException e) {
+				logger.info(e.getMessage());
 				return CAR_ALREADY_EXIST;
 
 			}
-			
+
 		}
 
 	}

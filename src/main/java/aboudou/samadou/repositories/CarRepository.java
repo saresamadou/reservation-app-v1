@@ -6,5 +6,5 @@ import aboudou.samadou.entities.Car;
 
 public interface CarRepository extends JpaRepository<Car, Long>
 {
-	
+	Car findByMarque(String marque);
 }

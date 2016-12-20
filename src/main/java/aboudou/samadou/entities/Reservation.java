@@ -19,6 +19,7 @@ import javax.persistence.Temporal;
 @Table(name="reservations")
 public class Reservation implements Serializable
 {
+	/** Serial number used for serialisation/deserialisation*/
 	private static final long serialVersionUID=1L;
 
 	@Id
@@ -43,13 +44,21 @@ public class Reservation implements Serializable
 	@Column(name = "id_car", insertable = false, updatable = false)
 	private Long idCar;
 	
+
 	
-	public Reservation()
-	{
-		
+	//Default construtor
+	public Reservation() {
+		super();
 	}
 
 
+	public Reservation(Car car, Client client)
+	{
+		this.car = car;
+		this.client = client;
+	}
+
+	
 	public Reservation(Long id, Date date, Car car, Client client, Long idClient, Long idCar) {
 		super();
 		this.id = id;
@@ -101,12 +110,7 @@ public class Reservation implements Serializable
 	}
 
 
-	public Reservation(Car car, Client client)
-	{
-		this.car = car;
-		this.client = client;
-	}
-
+	
 
 	public Car getCar()
 	{

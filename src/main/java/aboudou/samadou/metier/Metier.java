@@ -6,11 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.google.common.collect.Lists;
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 
 import aboudou.samadou.entities.Car;
 import aboudou.samadou.entities.Client;
 import aboudou.samadou.entities.Reservation;
+import aboudou.samadou.exceptions.CarAlreadyExistsException;
 import aboudou.samadou.repositories.CarRepository;
 import aboudou.samadou.repositories.ClientRepository;
 import aboudou.samadou.repositories.ReservationRepository;
@@ -41,8 +41,14 @@ public class Metier implements IMetier {
 	}
 
 	@Override
-	public void addCar(Car car) throws Exception{
-		carRepository.saveAndFlush(car);
+	public void addCar(Car car) throws CarAlreadyExistsException {
+
+		if (carRepository.findByMarque(car.getMarque()) != null) {
+			throw new CarAlreadyExistsException("THIS CAR ALREADY EXISTS");
+		} else {
+			carRepository.saveAndFlush(car);
+		}
+
 	}
 
 	@Override
@@ -52,14 +58,26 @@ public class Metier implements IMetier {
 
 	@Override
 	public Client findClientByEmail(String email) {
-		
+
 		return clientRepository.findByEmail(email);
 	}
 
 	@Override
 	public void changeCarDisponibility(Car car) {
 		carRepository.save(car);
-		
+
+	}
+
+	@Override
+	public void addReservation(Reservation reservation) {
+		reservationRepository.saveAndFlush(reservation);
+
+	}
+
+	@Override
+	public Car findCarById(Long id) {
+
+		return carRepository.findOne(id);
 	}
 
 }

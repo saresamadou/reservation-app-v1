@@ -12,31 +12,28 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import aboudou.samadou.entities.Car;
 import aboudou.samadou.entities.Client;
 import aboudou.samadou.metier.Metier;
-import aboudou.samadou.repositories.ClientRepository;
+
 
 @RestController
 @RequestMapping("/clients")
 @CrossOrigin
 public class ClientService {
 
-	final static Logger logger = LoggerFactory.getLogger(ClientService.class);
+	static final  Logger logger = LoggerFactory.getLogger(ClientService.class);
 
 	@Autowired
 	private Metier metier;
 
-	@Autowired
-	private ClientRepository clientRepository;
 
 	@RequestMapping(value = "/getClients", method = RequestMethod.GET)
 	public List<Client> getAllClients() {
-		return clientRepository.findAll();
+		return metier.getAllClients();
 	}
 
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
-	public @ResponseBody Client addNewClient(@RequestBody Client newClient) {
+	@ResponseBody public Client addNewClient(@RequestBody Client newClient) {
 		logger.info(newClient.toString());
 
 		if (newClient.equals(null)) {
@@ -51,8 +48,8 @@ public class ClientService {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public @ResponseBody Client login(@RequestBody String email) {
-		if (email.equals(null)) {
+	@ResponseBody public  Client login(@RequestBody String email) {
+		if (email == null) {
 			return null;
 		} else {
 			Client client = metier.findClientByEmail(email);
