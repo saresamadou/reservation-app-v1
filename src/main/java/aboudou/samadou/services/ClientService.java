@@ -15,17 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 import aboudou.samadou.entities.Client;
 import aboudou.samadou.metier.Metier;
 
-
 @RestController
 @RequestMapping("/clients")
 @CrossOrigin
 public class ClientService {
 
-	static final  Logger logger = LoggerFactory.getLogger(ClientService.class);
+	static final Logger logger = LoggerFactory.getLogger(ClientService.class);
 
 	@Autowired
 	private Metier metier;
-
 
 	@RequestMapping(value = "/getClients", method = RequestMethod.GET)
 	public List<Client> getAllClients() {
@@ -33,10 +31,10 @@ public class ClientService {
 	}
 
 	@RequestMapping(value = "/addClient", method = RequestMethod.POST)
-	@ResponseBody public Client addNewClient(@RequestBody Client newClient) {
-		logger.info(newClient.toString());
+	@ResponseBody
+	public Client addNewClient(@RequestBody Client newClient) {
 
-		if (newClient.equals(null)) {
+		if (newClient == null) {
 			logger.info("You must give me a client");
 			return null;
 		} else {
@@ -48,12 +46,13 @@ public class ClientService {
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	@ResponseBody public  Client login(@RequestBody String email) {
+	@ResponseBody
+	public Client login(@RequestBody String email) {
 		if (email == null) {
 			return null;
 		} else {
 			Client client = metier.findClientByEmail(email);
-			if (client.equals(null)) {
+			if (client == null) {
 				return null;
 			} else {
 				return client;

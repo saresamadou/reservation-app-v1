@@ -31,7 +31,7 @@ public class ReservationService {
 	@RequestMapping(value="/addReservation", method=RequestMethod.POST)
 	@ResponseBody public  Reservation addReservation(@RequestBody Reservation reservation) {
 		
-		if(reservation.equals(null)) {
+		if(reservation == null) {
 			return null;
 		} else {
 			Car carChanged = reservation.getCar();

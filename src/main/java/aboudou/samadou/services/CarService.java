@@ -21,7 +21,7 @@ import aboudou.samadou.metier.Metier;
 @CrossOrigin
 public class CarService {
 
-	static final  Logger logger = LoggerFactory.getLogger(CarService.class);
+	static final Logger logger = LoggerFactory.getLogger(CarService.class);
 
 	private static final Integer CAR_ALREADY_EXIST = 300;
 
@@ -38,9 +38,8 @@ public class CarService {
 	@RequestMapping(value = "/addCar", method = RequestMethod.POST)
 	@ResponseBody
 	public Integer addNewCar(@RequestBody Car newCar) {
-		logger.info(newCar.toString());
 
-		if (newCar.equals(null)) {
+		if (newCar == null) {
 			logger.info("You must give me a Car");
 			return null;
 		} else {
