@@ -23,7 +23,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.ResultMatcher;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import aboudou.samadou.TestUtils;
 import aboudou.samadou.entities.Client;
 import aboudou.samadou.metier.Metier;
 import aboudou.samadou.services.ClientService;
@@ -59,7 +58,7 @@ public class ClientServiceTest {
 		//test the service
 		mockMvc.perform(get("/clients/getClients"))
 		.andExpect(status().isOk())
-		.andExpect(content().contentType(TestUtils.APPLICATION_JSON_UTF8))
+		//.andExpect(content().contentType(TestUtil.APPLICATION_JSON_UTF8))
 		.andExpect((ResultMatcher) jsonPath("$", org.hamcrest.Matchers.hasSize(2)));
 		
 	}
